@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Leaf, Search, ShieldCheck, Globe } from "lucide-react";
+import { Leaf, Search, ShieldCheck, Globe, Loader2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Collapsible,
@@ -22,10 +22,21 @@ const EXAMPLE_CHIPS = [
   "Cardboard box",
 ];
 
+async function classifyWithAI(item: string): Promise<WasteCategory> {
+  const res = await fetch("/api/classify", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ item }),
+  });
+  if (!res.ok) throw new Error(`API error ${res.status}`);
+  return res.json() as Promise<WasteCategory>;
+}
+
 export default function Home() {
   const [inputValue, setInputValue] = useState("");
   const [result, setResult] = useState<WasteCategory | null>(null);
   const [hasSearched, setHasSearched] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const [isResponsibleOpen, setIsResponsibleOpen] = useState(false);
 
@@ -33,12 +44,23 @@ export default function Home() {
     inputRef.current?.focus();
   }, []);
 
-  const handleSearch = (query: string = inputValue) => {
-    if (!query.trim()) return;
+  const handleSearch = async (query: string = inputValue) => {
+    if (!query.trim() || isLoading) return;
     setInputValue(query);
-    const classification = classifyWaste(query);
-    setResult(classification);
+    setIsLoading(true);
     setHasSearched(true);
+    setResult(null);
+
+    try {
+      const aiResult = await classifyWithAI(query.trim());
+      setResult(aiResult);
+    } catch {
+      // Fallback to local classification if API fails
+      const fallback = classifyWaste(query);
+      setResult(fallback);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -109,14 +131,23 @@ export default function Home() {
                   placeholder="e.g. 'plastic bottle', 'old laptop', 'banana peel'"
                   className="flex-1 border-0 shadow-none focus-visible:ring-0 text-lg h-14 px-4 bg-transparent"
                   data-testid="input-waste-item"
+                  disabled={isLoading}
                 />
                 <Button 
                   onClick={() => handleSearch()} 
                   size="lg" 
                   className="rounded-xl px-8 h-12 font-medium"
                   data-testid="button-sort-waste"
+                  disabled={isLoading}
                 >
-                  Sort Waste
+                  {isLoading ? (
+                    <>
+                      <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                      Sorting…
+                    </>
+                  ) : (
+                    "Sort Waste"
+                  )}
                 </Button>
               </div>
             </div>
@@ -127,7 +158,8 @@ export default function Home() {
                 <button
                   key={chip}
                   onClick={() => handleSearch(chip)}
-                  className="text-sm px-3 py-1 rounded-full bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors"
+                  disabled={isLoading}
+                  className="text-sm px-3 py-1 rounded-full bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   data-testid={`chip-example-${chip.replace(/\s+/g, '-').toLowerCase()}`}
                 >
                   {chip}
@@ -139,9 +171,21 @@ export default function Home() {
 
         <div className="w-full max-w-2xl mt-12 min-h-[200px]">
           <AnimatePresence mode="wait">
-            {hasSearched && result && (
+            {isLoading && (
               <motion.div
-                key={result.label}
+                key="loading"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                className="flex flex-col items-center justify-center gap-4 p-12 text-muted-foreground"
+              >
+                <Loader2 className="w-10 h-10 animate-spin text-primary" />
+                <p className="text-base">Consulting the AI waste expert…</p>
+              </motion.div>
+            )}
+            {!isLoading && hasSearched && result && (
+              <motion.div
+                key={result.label + result.instruction}
                 initial={{ opacity: 0, scale: 0.95, y: 10 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: -10 }}
@@ -164,7 +208,7 @@ export default function Home() {
                 </Card>
               </motion.div>
             )}
-            {hasSearched && !result && inputValue && (
+            {!isLoading && hasSearched && !result && inputValue && (
               <motion.div
                 key="empty"
                 initial={{ opacity: 0, y: 10 }}
