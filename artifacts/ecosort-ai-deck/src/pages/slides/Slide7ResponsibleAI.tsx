@@ -131,7 +131,7 @@ export default function Slide7ResponsibleAI() {
                 flex: 1,
               }}
             >
-              The app avoids assumptions about a user's socioeconomic status or access to premium recycling. Guidance is equally useful for any household.
+              Evaluates waste without assuming the user has access to premium recycling services. Guidance is equally useful for any household, regardless of location or income.
             </div>
           </div>
 
@@ -185,7 +185,7 @@ export default function Slide7ResponsibleAI() {
                 flex: 1,
               }}
             >
-              Gives clear explanations for WHY an item goes in a specific bin — not just a label, but the reasoning behind the classification.
+              The AI explains why the item needs specific handling — for example, why batteries must have their terminals taped to prevent fires — not just a category label.
             </div>
           </div>
 
@@ -239,7 +239,7 @@ export default function Slide7ResponsibleAI() {
                 flex: 1,
               }}
             >
-              Does not collect user names, locations, or personal data. All classification logic runs locally — nothing is stored or transmitted.
+              The API call only sends the waste item name — no personal user data is collected or processed. No names, locations, or histories are ever stored or transmitted.
             </div>
           </div>
         </div>

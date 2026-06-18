@@ -79,7 +79,7 @@ export default function Slide4Workflow() {
             margin: "0 0 5vh 0",
           }}
         >
-          Keyword-matching algorithm categorizes any item into 1 of 5 groups instantly
+          Prompt Engineering queries the Gemini API to dynamically classify any item and generate custom disposal instructions
         </p>
 
         {/* Flow diagram: step boxes */}
@@ -112,7 +112,7 @@ export default function Slide4Workflow() {
                 User Input
               </div>
               <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "1.3vw", color: "#E0EBE0", opacity: 0.6, lineHeight: 1.5 }}>
-                User types or describes any waste item — "old phone", "banana peel", "paint can"
+                User types a specific waste item — "old phone", "banana peel", "paint can"
               </div>
             </div>
           </div>
@@ -147,10 +147,10 @@ export default function Slide4Workflow() {
             </div>
             <div style={{ flex: 1 }}>
               <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "2vw", fontWeight: 700, color: "#E0EBE0", marginBottom: "1.5vh" }}>
-                AI Classification
+                Prompt Engineering
               </div>
               <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "1.3vw", color: "#E0EBE0", opacity: 0.6, lineHeight: 1.5 }}>
-                Simulated AI keyword-matching scans the input against waste category rules
+                A crafted system prompt sends the item to the Gemini API, instructing it to act as a waste disposal expert
               </div>
             </div>
           </div>
@@ -161,6 +161,41 @@ export default function Slide4Workflow() {
           </div>
 
           {/* Step 3 */}
+          <div
+            style={{
+              flex: 1,
+              backgroundColor: "rgba(90,138,90,0.08)",
+              border: "1px solid rgba(90,138,90,0.25)",
+              padding: "3vh 2vw",
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <div
+              style={{
+                fontFamily: "'DM Mono', monospace",
+                fontSize: "0.9vw",
+                color: "#5A8A5A",
+                letterSpacing: "0.12vw",
+                marginBottom: "2vh",
+              }}
+            >
+              STEP 03
+            </div>
+            <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "2vw", fontWeight: 700, color: "#E0EBE0", marginBottom: "1.5vh" }}>
+              Generative AI Classifies
+            </div>
+            <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "1.3vw", color: "#E0EBE0", opacity: 0.6, lineHeight: 1.5 }}>
+              Gemini dynamically classifies the item and generates a custom, realistic 2-step disposal instruction
+            </div>
+          </div>
+
+          {/* Arrow */}
+          <div style={{ display: "flex", alignItems: "center", padding: "0 0.8vw", color: "#5A8A5A", fontSize: "2vw" }}>
+            →
+          </div>
+
+          {/* Step 4 */}
           <div
             style={{
               flex: 1.3,
@@ -180,13 +215,13 @@ export default function Slide4Workflow() {
                 marginBottom: "2vh",
               }}
             >
-              STEP 03
+              STEP 04
             </div>
             <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "2vw", fontWeight: 700, color: "#E0EBE0", marginBottom: "1.5vh" }}>
-              Result + Instructions
+              Result Displayed
             </div>
             <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "1.3vw", color: "#E0EBE0", opacity: 0.6, lineHeight: 1.5, marginBottom: "2vh" }}>
-              Returns the category and precise safe-handling instructions
+              The web app frontend displays the category, emoji, and instructions instantly
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "1vh" }}>
               <div style={{ fontFamily: "'DM Mono', monospace", fontSize: "1.1vw", color: "#5A8A5A" }}>Recycle</div>

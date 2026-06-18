@@ -1,0 +1,43 @@
+I have successfully integrated the Gemini API, making this a fully functioning Generative AI application! Please generate the slide deck text for my 1M1B IBM SkillsBuild AI Internship presentation. It MUST follow this exact 8-slide structure.
+
+Slide 1: Title Slide
+Title: EcoSort AI - Smart Waste Guide. Include placeholders for 'My Name' and 'My College'.
+
+Slide 2: Problem Statement & SDG Alignment
+Focus on SDG 12 (Responsible Consumption & Production). Explain the problem: People are confused by complex, item-specific waste rules, leading to 'wishcycling' and landfill contamination.
+
+Slide 3: AI Solution Overview & Target Users
+Explain that EcoSort is a real-time, LLM-powered web application. Target users are students, households, and communities who need instant, highly specific disposal advice.
+
+Slide 4: The AI Workflow (How it Works)
+Explain the backend logic:
+
+    User inputs a specific waste item.
+
+    The app uses Prompt Engineering to query the Gemini API.
+
+    The Generative AI dynamically classifies the item (Recycle, Compost, E-Waste, etc.) and generates a custom, realistic 2-step disposal instruction.
+
+    The Streamlit frontend displays the result instantly.
+
+Slide 5: Prototype Demo (Placeholder)
+Create a layout where I can paste screenshots of our working Replit web app showing dynamic item-specific answers.
+
+Slide 6: AI Tools Used
+
+    Gemini API: Used as the core Generative AI engine for dynamic text classification and instruction generation.
+
+    Replit & Streamlit: Used to code and host the frontend web application.
+
+    IBM BOB (Build on BOB): Used during the ideation phase to structure the project requirements and validate the responsible AI considerations. (Leave a placeholder for my IBM BOB screenshot).
+
+Slide 7: Responsible AI Considerations (Mandatory)
+
+    Fairness: Evaluates waste without assuming the user has access to premium recycling services.
+
+    Transparency: The AI explains why the item needs specific handling (e.g., preventing battery fires).
+
+    Privacy: The API call only sends the waste item name; no personal user data is collected or processed.
+
+Slide 8: Expected Impact
+Environmental: Reduces greenhouse gases, prevents toxic leaks from e-waste. Social: Builds daily sustainable habits and educates communities.

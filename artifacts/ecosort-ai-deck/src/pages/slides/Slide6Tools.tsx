@@ -62,7 +62,7 @@ export default function Slide6Tools() {
             fontSize: "4vw",
             fontWeight: 400,
             color: "#E0EBE0",
-            margin: "0 0 6vh 0",
+            margin: "0 0 5vh 0",
             lineHeight: 1.1,
             letterSpacing: "-0.08vw",
           }}
@@ -70,17 +70,18 @@ export default function Slide6Tools() {
           Built With
         </h2>
 
-        {/* Two tool cards */}
-        <div style={{ display: "flex", flex: 1, gap: "4vw", alignItems: "stretch" }}>
-          {/* IBM BOB */}
+        {/* Three tool cards */}
+        <div style={{ display: "flex", flex: 1, gap: "3vw", alignItems: "stretch" }}>
+
+          {/* Gemini API */}
           <div
             style={{
               flex: 1,
               borderTop: "2px solid #5A8A5A",
-              paddingTop: "4vh",
+              paddingTop: "3.5vh",
               display: "flex",
               flexDirection: "column",
-              gap: "2.5vh",
+              gap: "2vh",
             }}
           >
             <div
@@ -97,60 +98,34 @@ export default function Slide6Tools() {
             <div
               style={{
                 fontFamily: "'DM Sans', sans-serif",
-                fontSize: "3vw",
+                fontSize: "2.5vw",
                 fontWeight: 700,
                 color: "#E0EBE0",
                 lineHeight: 1.1,
               }}
             >
-              IBM BOB
+              Gemini API
             </div>
             <div
               style={{
                 fontFamily: "'DM Mono', monospace",
-                fontSize: "1.1vw",
+                fontSize: "1vw",
                 color: "#5A8A5A",
                 opacity: 0.8,
               }}
             >
-              Build on BOB
+              Core Generative AI Engine
             </div>
             <div
               style={{
                 fontFamily: "'DM Sans', sans-serif",
-                fontSize: "1.4vw",
+                fontSize: "1.35vw",
                 color: "#E0EBE0",
                 opacity: 0.65,
                 lineHeight: 1.6,
-                maxWidth: "30vw",
               }}
             >
-              Used as the AI assistant to ideate the waste classification logic, define the five disposal categories, and structure the prompt workflow.
-            </div>
-
-            {/* Placeholder for IBM BOB screenshot */}
-            <div
-              style={{
-                flex: 1,
-                border: "1px dashed rgba(90,138,90,0.35)",
-                backgroundColor: "rgba(90,138,90,0.04)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                marginTop: "1vh",
-              }}
-            >
-              <div
-                style={{
-                  fontFamily: "'DM Mono', monospace",
-                  fontSize: "1vw",
-                  color: "#5A8A5A",
-                  opacity: 0.5,
-                  textAlign: "center",
-                }}
-              >
-                [Paste IBM BOB screenshot here]
-              </div>
+              Used as the core Generative AI engine for dynamic text classification and instruction generation — responds to any item with specific, realistic disposal advice.
             </div>
           </div>
 
@@ -158,11 +133,11 @@ export default function Slide6Tools() {
           <div
             style={{
               flex: 1,
-              borderTop: "2px solid rgba(90,138,90,0.4)",
-              paddingTop: "4vh",
+              borderTop: "2px solid rgba(90,138,90,0.5)",
+              paddingTop: "3.5vh",
               display: "flex",
               flexDirection: "column",
-              gap: "2.5vh",
+              gap: "2vh",
             }}
           >
             <div
@@ -179,7 +154,7 @@ export default function Slide6Tools() {
             <div
               style={{
                 fontFamily: "'DM Sans', sans-serif",
-                fontSize: "3vw",
+                fontSize: "2.5vw",
                 fontWeight: 700,
                 color: "#E0EBE0",
                 lineHeight: 1.1,
@@ -190,35 +165,92 @@ export default function Slide6Tools() {
             <div
               style={{
                 fontFamily: "'DM Mono', monospace",
-                fontSize: "1.1vw",
+                fontSize: "1vw",
                 color: "#5A8A5A",
                 opacity: 0.8,
               }}
             >
-              Frontend Visual Prototype
+              Code &amp; Host
             </div>
             <div
               style={{
                 fontFamily: "'DM Sans', sans-serif",
-                fontSize: "1.4vw",
+                fontSize: "1.35vw",
                 color: "#E0EBE0",
                 opacity: 0.65,
                 lineHeight: 1.6,
-                maxWidth: "30vw",
               }}
             >
-              Used to build and deploy the interactive web prototype — users can type any item and receive instant disposal guidance in a clean interface.
+              Used to code and host the frontend web application — users can type any item and receive instant Gemini-powered disposal guidance in a clean interface.
+            </div>
+          </div>
+
+          {/* IBM BOB */}
+          <div
+            style={{
+              flex: 1,
+              borderTop: "2px solid rgba(90,138,90,0.35)",
+              paddingTop: "3.5vh",
+              display: "flex",
+              flexDirection: "column",
+              gap: "2vh",
+            }}
+          >
+            <div
+              style={{
+                fontFamily: "'DM Mono', monospace",
+                fontSize: "0.9vw",
+                color: "#5A8A5A",
+                letterSpacing: "0.15vw",
+                textTransform: "uppercase",
+              }}
+            >
+              Tool 03
+            </div>
+            <div
+              style={{
+                fontFamily: "'DM Sans', sans-serif",
+                fontSize: "2.5vw",
+                fontWeight: 700,
+                color: "#E0EBE0",
+                lineHeight: 1.1,
+              }}
+            >
+              IBM BOB
+            </div>
+            <div
+              style={{
+                fontFamily: "'DM Mono', monospace",
+                fontSize: "1vw",
+                color: "#5A8A5A",
+                opacity: 0.8,
+              }}
+            >
+              Build on BOB — Ideation
+            </div>
+            <div
+              style={{
+                fontFamily: "'DM Sans', sans-serif",
+                fontSize: "1.35vw",
+                color: "#E0EBE0",
+                opacity: 0.65,
+                lineHeight: 1.6,
+              }}
+            >
+              Used during the ideation phase to structure the project requirements and validate the responsible AI considerations.
             </div>
 
+            {/* Placeholder for IBM BOB screenshot */}
             <div
               style={{
                 flex: 1,
-                border: "1px dashed rgba(90,138,90,0.2)",
-                backgroundColor: "rgba(90,138,90,0.03)",
+                border: "1px dashed rgba(90,138,90,0.35)",
+                backgroundColor: "rgba(90,138,90,0.04)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 marginTop: "1vh",
+                minHeight: "8vh",
               }}
             >
               <div
@@ -226,11 +258,11 @@ export default function Slide6Tools() {
                   fontFamily: "'DM Mono', monospace",
                   fontSize: "1vw",
                   color: "#5A8A5A",
-                  opacity: 0.35,
+                  opacity: 0.5,
                   textAlign: "center",
                 }}
               >
-                [App deployed on replit.app]
+                [Paste IBM BOB screenshot here]
               </div>
             </div>
           </div>

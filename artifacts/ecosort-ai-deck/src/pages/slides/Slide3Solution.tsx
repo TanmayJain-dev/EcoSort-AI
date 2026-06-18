@@ -95,7 +95,7 @@ export default function Slide3Solution() {
                 lineHeight: 1.6,
               }}
             >
-              EcoSort is a prompt-workflow prototype that acts as a smart waste segregation guide.
+              EcoSort is a real-time, LLM-powered web application that acts as a smart waste segregation guide.
             </p>
             <p
               style={{
@@ -107,7 +107,7 @@ export default function Slide3Solution() {
                 lineHeight: 1.6,
               }}
             >
-              A user describes any item — the AI returns the correct disposal category with clear safe-handling instructions, instantly.
+              A user types any specific item — the Gemini API dynamically generates the correct disposal category with highly specific, realistic instructions, instantly.
             </p>
           </div>
 
