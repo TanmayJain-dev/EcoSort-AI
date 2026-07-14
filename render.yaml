@@ -17,14 +17,14 @@ services:
         sync: false   # ← paste your key in the Render dashboard
 
   # ── Frontend (Static Site) ────────────────────────────────────────────────────
-  - type: web
+  -   # ── Frontend (Static Site) ────────────────────────────────────────────────────
+  - type: static
     name: ecosort-frontend
-    runtime: static
     region: oregon
     plan: free
     rootDir: .
-    buildCommand: npm install -g pnpm && pnpm install --frozen-lockfile && pnpm --filter @workspace/ecosort-ai run build
-    staticPublishPath: artifacts/ecosort-ai/dist/public
+    buildCommand: pnpm install --no-frozen-lockfile && pnpm --filter @workspace/ecosort-ai run build
+    publishDir: artifacts/ecosort-ai/dist
     headers:
       - path: /*
         name: Cache-Control
@@ -36,6 +36,4 @@ services:
       - key: BASE_PATH
         value: /
       - key: VITE_API_URL
-        # Set this to the URL of the ecosort-api service above, e.g.:
-        # https://ecosort-api.onrender.com
         sync: false
